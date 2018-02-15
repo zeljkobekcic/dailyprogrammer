@@ -50,12 +50,13 @@ def apply_argument(perm, task):
 
 
 if __name__ == "__main__":
-
-    start = list(argv[1])
-    program = parse_to_list(argv[2])
+    input_file = open('input.txt', 'r')
+    
+    start = list(input_file.readline())[:-1]
+    program = parse_to_list(input_file.readline())
 
     start_permutation = permutation_madness(start, start)
     result_permutation = reduce(apply_argument, program, start_permutation)
 
-    print(result_permutation.current_list)
+    print(''.join(result_permutation.current_list))
     
